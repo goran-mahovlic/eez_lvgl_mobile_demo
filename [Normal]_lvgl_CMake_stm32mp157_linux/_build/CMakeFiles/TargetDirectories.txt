@@ -1,0 +1,14 @@
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/CMakeFiles/edit_cache.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/CMakeFiles/rebuild_cache.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/CMakeFiles/little_prj.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/CMakeFiles/edit_cache.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/CMakeFiles/rebuild_cache.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/lvgl/CMakeFiles/lvgl_lib.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/lvgl/CMakeFiles/edit_cache.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/lvgl/CMakeFiles/rebuild_cache.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/lv_drivers/CMakeFiles/lv_drivers_lib.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/lv_drivers/CMakeFiles/edit_cache.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/lv_drivers/CMakeFiles/rebuild_cache.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/lv_100ask_teach_demos/CMakeFiles/lv_100ask_teach_demos_lib.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/lv_100ask_teach_demos/CMakeFiles/edit_cache.dir
+/media/sf_VM_eez/EEZ-Test/windowUSB2_mod1_cmake_csdn/_build/src/lv_100ask_teach_demos/CMakeFiles/rebuild_cache.dir
