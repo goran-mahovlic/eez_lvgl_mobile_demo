@@ -1,0 +1,2 @@
+/usr/bin/arm-linux-gnueabihf-ar qc liblv_100ask_teach_demos_lib.a CMakeFiles/lv_100ask_teach_demos_lib.dir/src/lv_100ask_demo_course_2_1_1/lv_100ask_demo_course_2_1_1.c.o
+/usr/bin/arm-linux-gnueabihf-ranlib liblv_100ask_teach_demos_lib.a
