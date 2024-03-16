@@ -1,3 +1,6 @@
+[ Please check README.txt for proper formatting ]
+
+
 Only the [Normal] works
 	- lv_drivers
 	- lvgl
