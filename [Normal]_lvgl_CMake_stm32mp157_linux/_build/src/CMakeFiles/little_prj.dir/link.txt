@@ -1,1 +1,0 @@
-/usr/bin/arm-linux-gnueabihf-gcc  -O3 -Wall -g2 -ggdb  -static-libgcc -static-libstdc++ CMakeFiles/little_prj.dir/main.c.o CMakeFiles/little_prj.dir/mouse_cursor_icon.c.o -o little_prj  lvgl/liblvgl_lib.a lv_drivers/liblv_drivers_lib.a lv_100ask_teach_demos/liblv_100ask_teach_demos_lib.a -lpthread

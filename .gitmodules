@@ -1,0 +1,3 @@
+[submodule "[Problem]_eez-lvlg_CMake_stm32mp157_linux/src/eez-framework"]
+	path = [Problem]_eez-lvlg_CMake_stm32mp157_linux/src/eez-framework
+	url = https://github.com/eez-open/eez-framework
