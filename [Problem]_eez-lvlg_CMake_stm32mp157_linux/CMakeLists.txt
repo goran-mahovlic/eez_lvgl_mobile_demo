@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.12.4)
 
 #using gcc first
 set(CMAKE_C_COMPILER "/usr/bin/arm-linux-gnueabihf-gcc") 
+set(CMAKE_CXX_COMPILER "/usr/bin/arm-linux-gnueabihf-g++") 
 
 # link_libraries("/home/kknight/Linux/tslib-1.4/tmp/lib/libts.so")
 # //链接使用的库，相当于gcc -L/xxx/xxx

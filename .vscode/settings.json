@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "lvgl_api.h": "c",
+        "ui.h": "c"
+    }
+}

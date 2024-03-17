@@ -10,18 +10,34 @@ aux_source_directory(. DIR_SRC)
 add_subdirectory(lvgl)
 add_subdirectory(lv_drivers)
 add_subdirectory(lv_100ask_teach_demos)
-add_subdirectory(ui)
-add_subdirectory(eez-framework)
-
 
 include_directories(./lvgl/)  
-include_directories(./)  
+include_directories(./) 
+
+
+# for eez framework 
+include_directories(./eez-framework/src)  
+add_definitions(-DEEZ_FOR_LVGL)
+add_definitions(-DLV_SCR_LOAD_ANIM_FADE_IN=LV_SCR_LOAD_ANIM_FADE_ON)
+aux_source_directory(./eez-framework/src/eez/core/  EEZ_FRAMEWORK_SOURCES)
+aux_source_directory(./eez-framework/src/eez/flow/  EEZ_FRAMEWORK_SOURCES)
+aux_source_directory(./eez-framework/src/eez/flow/components/  EEZ_FRAMEWORK_SOURCES)
+aux_source_directory(./eez-framework/src/eez/libs/lz4  EEZ_FRAMEWORK_SOURCES)
+aux_source_directory(./eez-framework/src/eez/libs/sha256  EEZ_FRAMEWORK_SOURCES)
+include_directories(
+    ./eez-framework/src/eez/platform/simulator
+    ./eez-framework/src/eez/libs/agg
+)
+add_library(eez-framework_lib STATIC ${EEZ_FRAMEWORK_SOURCES} )	
+
+
+add_subdirectory(ui)
+
 # #include angular bracket lib
 # # include_directories(./eez-framework/src/) 
 # include_directories(./eez-framework/src/eez) 
 
 #for eez framework
-add_definitions(-DEEZ_FOR_LVGL)
 
 #//设置头文件路劲
 # include_directories(../../tslib/include)

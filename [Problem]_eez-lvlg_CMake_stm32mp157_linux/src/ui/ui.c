@@ -2,15 +2,18 @@
 #include "screens.h"
 #include "images.h"
 #include "flow_def.h"
+#include "actions.h"
 
-static int16_t currentScreen = -1;
+ActionExecFunc actions[] = {
+    0
+};
+
 
 void ui_init() {
-    eez_flow_init(assets, sizeof(assets), (lv_obj_t **)&objects, sizeof(objects), images, sizeof(images));
+    eez_flow_init(assets, sizeof(assets), (lv_obj_t **)&objects, sizeof(objects), images, sizeof(images), actions);
 }
 
 void ui_tick() {
     eez_flow_tick();
-    // tick_screen(g_currentScreen);
-    tick_screen(currentScreen);
+    tick_screen(g_currentScreen);
 }

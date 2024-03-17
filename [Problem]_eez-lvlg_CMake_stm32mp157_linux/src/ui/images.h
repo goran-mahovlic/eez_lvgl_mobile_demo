@@ -1,7 +1,7 @@
 #ifndef EEZ_LVGL_UI_IMAGES_H
 #define EEZ_LVGL_UI_IMAGES_H
 
-#include <lvgl/lvgl.h>
+#include <lvgl.h>
 
 extern const lv_img_dsc_t img_background_1;
 extern const lv_img_dsc_t img_background_2;
