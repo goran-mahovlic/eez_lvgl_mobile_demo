@@ -1,4 +1,0 @@
-//cmake -D CMAKE_C_COMPILER=/usr/bin/arm-linux-gnueabihf-gcc -D CMAKE_CXX_COMPILER=/usr/bin/arm-linux-gnueabihf-g++
-
-
-cmake . -D CMAKE_C_COMPILER=/usr/bin/arm-linux-gnueabihf-gcc -D CMAKE_CXX_COMPILER=/usr/bin/arm-linux-gnueabihf-g++
