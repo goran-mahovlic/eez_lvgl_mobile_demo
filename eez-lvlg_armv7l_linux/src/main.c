@@ -1,6 +1,6 @@
 #include "lvgl/lvgl.h"
 #include "lvgl/demos/lv_demos.h"
-#include "lv_drivers/display/fbdev.h"
+//#include "lv_drivers/display/fbdev.h"
 #include "lv_drivers/indev/evdev.h"
 #include "lv_100ask_teach_demos/lv_100ask_teach_demos.h"
 
@@ -14,13 +14,21 @@
 
 #define DISP_BUF_SIZE (128 * 1024)
 
+static void lv_linux_disp_init(void)
+{
+    const int width = atoi(getenv("LV_SDL_VIDEO_WIDTH") ? : "960");
+    const int height = atoi(getenv("LV_SDL_VIDEO_HEIGHT") ? : "500");
+
+    lv_sdl_window_create(width, height);
+}
+
 int main(void)
 {
     /*LittlevGL init*/
     lv_init();
 
     /*Linux frame buffer device init*/
-    fbdev_init();
+    lv_linux_disp_init();
 
     /*A small buffer for LittlevGL to draw the screen's content*/
     static lv_color_t buf[DISP_BUF_SIZE];
@@ -33,9 +41,9 @@ int main(void)
     static lv_disp_drv_t disp_drv;
     lv_disp_drv_init(&disp_drv);
     disp_drv.draw_buf   = &disp_buf;
-    disp_drv.flush_cb   = fbdev_flush;
-    disp_drv.hor_res    = 800;
-    disp_drv.ver_res    = 480;
+    //disp_drv.flush_cb   = fbdev_flush;
+    disp_drv.hor_res    = 960;
+    disp_drv.ver_res    = 500;
     lv_disp_drv_register(&disp_drv);
 
     evdev_init();
