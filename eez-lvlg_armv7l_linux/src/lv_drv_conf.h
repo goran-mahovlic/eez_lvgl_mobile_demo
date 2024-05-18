@@ -86,7 +86,7 @@
 
 /* SDL based drivers for display, mouse, mousewheel and keyboard*/
 #ifndef USE_SDL
-# define USE_SDL 1
+# define USE_SDL 0
 #endif
 
 /* Hardware accelerated SDL driver */
@@ -143,7 +143,7 @@
  *  Native Windows (including mouse)
  *----------------------------------*/
 #ifndef USE_WINDOWS
-#  define USE_WINDOWS       0
+#  define USE_WINDOWS       1
 #endif
 
 #if USE_WINDOWS
