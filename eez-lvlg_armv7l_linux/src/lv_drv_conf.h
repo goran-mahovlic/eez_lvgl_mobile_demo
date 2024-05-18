@@ -86,24 +86,24 @@
 
 /* SDL based drivers for display, mouse, mousewheel and keyboard*/
 #ifndef USE_SDL
-# define USE_SDL 0
+# define USE_SDL 1
 #endif
 
 /* Hardware accelerated SDL driver */
 #ifndef USE_SDL_GPU
-# define USE_SDL_GPU 0
+# define USE_SDL_GPU 1
 #endif
 
 #if USE_SDL || USE_SDL_GPU
-#  define SDL_HOR_RES     480
-#  define SDL_VER_RES     320
+#  define SDL_HOR_RES     960
+#  define SDL_VER_RES     500
 
 /* Scale window by this factor (useful when simulating small screens) */
 #  define SDL_ZOOM        1
 
 /* Used to test true double buffering with only address changing.
  * Use 2 draw buffers, bith with SDL_HOR_RES x SDL_VER_RES size*/
-#  define SDL_DOUBLE_BUFFERED 0
+#  define SDL_DOUBLE_BUFFERED 1
 
 /*Eclipse: <SDL2/SDL.h>    Visual Studio: <SDL.h>*/
 #  define SDL_INCLUDE_PATH    <SDL2/SDL.h>
@@ -147,8 +147,8 @@
 #endif
 
 #if USE_WINDOWS
-#  define WINDOW_HOR_RES      480
-#  define WINDOW_VER_RES      320
+#  define WINDOW_HOR_RES      960
+#  define WINDOW_VER_RES      500
 #endif
 
 /*----------------------------
@@ -167,7 +167,7 @@
  *  GTK drivers (monitor, mouse, keyboard
  *---------------------------------------*/
 #ifndef USE_GTK
-#  define USE_GTK       0
+#  define USE_GTK       1
 #endif
 
 /*----------------------------------------
@@ -316,7 +316,7 @@
  *  Linux frame buffer device (/dev/fbx)
  *-----------------------------------------*/
 #ifndef USE_FBDEV
-#  define USE_FBDEV           1
+#  define USE_FBDEV           0
 #endif
 
 #if USE_FBDEV
