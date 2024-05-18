@@ -10,7 +10,7 @@ aux_source_directory(. DIR_SRC)
 add_subdirectory(lvgl)
 add_subdirectory(lv_drivers)
 add_subdirectory(lv_100ask_teach_demos)
-
+add_definitions(-DLV_LVGL_H_INCLUDE_SIMPLE)
 include_directories(./lvgl/)  
 include_directories(./) 
 
