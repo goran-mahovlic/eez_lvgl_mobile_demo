@@ -1,6 +1,6 @@
 #include "lvgl/lvgl.h"
 #include "lvgl/demos/lv_demos.h"
-//#include "lv_drivers/display/fbdev.h"
+#include "lv_drivers/display/fbdev.h"
 #include "lv_drivers/indev/evdev.h"
 #include "lv_100ask_teach_demos/lv_100ask_teach_demos.h"
 
@@ -41,9 +41,9 @@ int main(void)
     static lv_disp_drv_t disp_drv;
     lv_disp_drv_init(&disp_drv);
     disp_drv.draw_buf   = &disp_buf;
-    //disp_drv.flush_cb   = fbdev_flush;
-    disp_drv.hor_res    = 960;
-    disp_drv.ver_res    = 500;
+    disp_drv.flush_cb   = fbdev_flush;
+    disp_drv.hor_res    = 500;
+    disp_drv.ver_res    = 960;
     lv_disp_drv_register(&disp_drv);
 
     evdev_init();
