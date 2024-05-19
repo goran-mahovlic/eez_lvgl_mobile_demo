@@ -34,7 +34,7 @@ static void event_handler_cb_heating_screen_temperature_arc(lv_event_t *e) {
         lv_obj_t *ta = lv_event_get_target(e);
         int32_t value = lv_arc_get_value(ta);
         if (tick_value_change_obj != ta) {
-            assignIntegerProperty(flowState, 8, 2, value, "Failed to assign Value in Arc widget");
+            assignIntegerProperty(flowState, 8, 3, value, "Failed to assign Value in Arc widget");
         }
     }
 }
@@ -49,7 +49,7 @@ static void event_handler_cb_heating_screen_power_arc(lv_event_t *e) {
         lv_obj_t *ta = lv_event_get_target(e);
         int32_t value = lv_arc_get_value(ta);
         if (tick_value_change_obj != ta) {
-            assignIntegerProperty(flowState, 16, 2, value, "Failed to assign Value in Arc widget");
+            assignIntegerProperty(flowState, 16, 3, value, "Failed to assign Value in Arc widget");
         }
     }
 }
@@ -90,7 +90,7 @@ static void event_handler_cb_security_screen_obj19(lv_event_t *e) {
         lv_obj_t *ta = lv_event_get_target(e);
         bool value = lv_obj_has_state(ta, LV_STATE_CHECKED);
         if (tick_value_change_obj != ta) {
-            assignBooleanProperty(flowState, 23, 2, value, "Failed to assign Checked state");
+            assignBooleanProperty(flowState, 23, 3, value, "Failed to assign Checked state");
         }
     }
 }
@@ -126,7 +126,7 @@ static void event_handler_cb_lighting_screen_obj23(lv_event_t *e) {
         lv_obj_t *ta = lv_event_get_target(e);
         int32_t value = lv_slider_get_value(ta);
         if (tick_value_change_obj != ta) {
-            assignIntegerProperty(flowState, 13, 2, value, "Failed to assign Value in Slider widget");
+            assignIntegerProperty(flowState, 13, 3, value, "Failed to assign Value in Slider widget");
         }
     }
 }
@@ -213,7 +213,7 @@ void create_screen_heating_screen() {
     lv_obj_t *obj = lv_obj_create(0);
     objects.heating_screen = obj;
     lv_obj_set_pos(obj, 0, 0);
-    lv_obj_set_size(obj, 800, 480);
+    lv_obj_set_size(obj, 960, 500);
     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
     {
         lv_obj_t *parent_obj = obj;
@@ -533,7 +533,7 @@ void tick_screen_heating_screen() {
     void *flowState = getFlowState(0, 0);
     tick_user_widget_header(getFlowState(flowState, 0), 25);
     {
-        int32_t new_val = evalIntegerProperty(flowState, 8, 2, "Failed to evaluate Value in Arc widget");
+        int32_t new_val = evalIntegerProperty(flowState, 8, 3, "Failed to evaluate Value in Arc widget");
         int32_t cur_val = lv_arc_get_value(objects.temperature_arc);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.temperature_arc;
@@ -542,7 +542,7 @@ void tick_screen_heating_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 9, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 9, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj0);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj0;
@@ -551,7 +551,7 @@ void tick_screen_heating_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 10, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 10, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj1);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj1;
@@ -560,7 +560,7 @@ void tick_screen_heating_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 12, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 12, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj2);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj2;
@@ -569,7 +569,7 @@ void tick_screen_heating_screen() {
         }
     }
     {
-        int32_t new_val = evalIntegerProperty(flowState, 16, 2, "Failed to evaluate Value in Arc widget");
+        int32_t new_val = evalIntegerProperty(flowState, 16, 3, "Failed to evaluate Value in Arc widget");
         int32_t cur_val = lv_arc_get_value(objects.power_arc);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.power_arc;
@@ -578,7 +578,7 @@ void tick_screen_heating_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 17, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 17, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj3);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj3;
@@ -587,7 +587,7 @@ void tick_screen_heating_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 20, 2, "Failed to evaluate Disabled state");
+        bool new_val = evalBooleanProperty(flowState, 20, 3, "Failed to evaluate Disabled state");
         bool cur_val = lv_obj_has_state(objects.save, LV_STATE_DISABLED);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.save;
@@ -597,7 +597,7 @@ void tick_screen_heating_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 21, 2, "Failed to evaluate Disabled state");
+        bool new_val = evalBooleanProperty(flowState, 21, 3, "Failed to evaluate Disabled state");
         bool cur_val = lv_obj_has_state(objects.obj4, LV_STATE_DISABLED);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj4;
@@ -615,7 +615,7 @@ void create_screen_security_screen() {
     lv_obj_t *obj = lv_obj_create(0);
     objects.security_screen = obj;
     lv_obj_set_pos(obj, 0, 0);
-    lv_obj_set_size(obj, 800, 480);
+    lv_obj_set_size(obj, 960, 500);
     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
     {
         lv_obj_t *parent_obj = obj;
@@ -909,7 +909,7 @@ void tick_screen_security_screen() {
     void *flowState = getFlowState(0, 1);
     tick_user_widget_header(getFlowState(flowState, 0), 30);
     {
-        bool new_val = evalBooleanProperty(flowState, 10, 2, "Failed to evaluate Hidden flag");
+        bool new_val = evalBooleanProperty(flowState, 10, 3, "Failed to evaluate Hidden flag");
         bool cur_val = lv_obj_has_flag(objects.obj6, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj6;
@@ -919,7 +919,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 11, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 11, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj7);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj7;
@@ -928,7 +928,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 12, 2, "Failed to evaluate Hidden flag");
+        bool new_val = evalBooleanProperty(flowState, 12, 3, "Failed to evaluate Hidden flag");
         bool cur_val = lv_obj_has_flag(objects.obj8, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj8;
@@ -938,7 +938,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 13, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 13, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj9);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj9;
@@ -947,7 +947,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 14, 2, "Failed to evaluate Hidden flag");
+        bool new_val = evalBooleanProperty(flowState, 14, 3, "Failed to evaluate Hidden flag");
         bool cur_val = lv_obj_has_flag(objects.obj10, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj10;
@@ -957,7 +957,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 15, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 15, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj11);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj11;
@@ -966,7 +966,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 16, 2, "Failed to evaluate Hidden flag");
+        bool new_val = evalBooleanProperty(flowState, 16, 3, "Failed to evaluate Hidden flag");
         bool cur_val = lv_obj_has_flag(objects.obj12, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj12;
@@ -976,7 +976,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 17, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 17, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj13);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj13;
@@ -985,7 +985,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 18, 2, "Failed to evaluate Hidden flag");
+        bool new_val = evalBooleanProperty(flowState, 18, 3, "Failed to evaluate Hidden flag");
         bool cur_val = lv_obj_has_flag(objects.obj14, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj14;
@@ -995,7 +995,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 19, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 19, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj15);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj15;
@@ -1004,7 +1004,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 20, 2, "Failed to evaluate Hidden flag");
+        bool new_val = evalBooleanProperty(flowState, 20, 3, "Failed to evaluate Hidden flag");
         bool cur_val = lv_obj_has_flag(objects.obj16, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj16;
@@ -1014,7 +1014,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 21, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 21, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj17);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj17;
@@ -1023,7 +1023,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 22, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 22, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj18);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj18;
@@ -1032,7 +1032,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 23, 2, "Failed to evaluate Checked state");
+        bool new_val = evalBooleanProperty(flowState, 23, 3, "Failed to evaluate Checked state");
         bool cur_val = lv_obj_has_state(objects.obj19, LV_STATE_CHECKED);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj19;
@@ -1042,7 +1042,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 24, 2, "Failed to evaluate Disabled state");
+        bool new_val = evalBooleanProperty(flowState, 24, 3, "Failed to evaluate Disabled state");
         bool cur_val = lv_obj_has_state(objects.obj20, LV_STATE_DISABLED);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj20;
@@ -1052,7 +1052,7 @@ void tick_screen_security_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 24, 3, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 24, 4, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj20);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj20;
@@ -1069,7 +1069,7 @@ void create_screen_lighting_screen() {
     lv_obj_t *obj = lv_obj_create(0);
     objects.lighting_screen = obj;
     lv_obj_set_pos(obj, 0, 0);
-    lv_obj_set_size(obj, 800, 480);
+    lv_obj_set_size(obj, 960, 500);
     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
     {
         lv_obj_t *parent_obj = obj;
@@ -1367,7 +1367,7 @@ void tick_screen_lighting_screen() {
     void *flowState = getFlowState(0, 2);
     tick_user_widget_header(getFlowState(flowState, 0), 35);
     {
-        const char *new_val = evalTextProperty(flowState, 11, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 11, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj21);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj21;
@@ -1376,7 +1376,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 12, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 12, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj22);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj22;
@@ -1385,7 +1385,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        int32_t new_val = evalIntegerProperty(flowState, 13, 2, "Failed to evaluate Value in Slider widget");
+        int32_t new_val = evalIntegerProperty(flowState, 13, 3, "Failed to evaluate Value in Slider widget");
         int32_t cur_val = lv_slider_get_value(objects.obj23);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj23;
@@ -1394,7 +1394,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 14, 2, "Failed to evaluate Hidden flag");
+        bool new_val = evalBooleanProperty(flowState, 14, 3, "Failed to evaluate Hidden flag");
         bool cur_val = lv_obj_has_flag(objects.obj24, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj24;
@@ -1404,7 +1404,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 15, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 15, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj25);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj25;
@@ -1413,7 +1413,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 16, 2, "Failed to evaluate Hidden flag");
+        bool new_val = evalBooleanProperty(flowState, 16, 3, "Failed to evaluate Hidden flag");
         bool cur_val = lv_obj_has_flag(objects.obj26, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj26;
@@ -1423,7 +1423,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 17, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 17, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj27);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj27;
@@ -1432,7 +1432,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 18, 2, "Failed to evaluate Hidden flag");
+        bool new_val = evalBooleanProperty(flowState, 18, 3, "Failed to evaluate Hidden flag");
         bool cur_val = lv_obj_has_flag(objects.obj28, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj28;
@@ -1442,7 +1442,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 19, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 19, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj29);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj29;
@@ -1451,7 +1451,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 20, 2, "Failed to evaluate Hidden flag");
+        bool new_val = evalBooleanProperty(flowState, 20, 3, "Failed to evaluate Hidden flag");
         bool cur_val = lv_obj_has_flag(objects.obj30, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj30;
@@ -1461,7 +1461,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        const char *new_val = evalTextProperty(flowState, 21, 2, "Failed to evaluate Text in Label widget");
+        const char *new_val = evalTextProperty(flowState, 21, 3, "Failed to evaluate Text in Label widget");
         const char *cur_val = lv_label_get_text(objects.obj31);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.obj31;
@@ -1470,7 +1470,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 22, 2, "Failed to evaluate Hidden flag");
+        bool new_val = evalBooleanProperty(flowState, 22, 3, "Failed to evaluate Hidden flag");
         bool cur_val = lv_obj_has_flag(objects.obj32, LV_OBJ_FLAG_HIDDEN);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj32;
@@ -1480,7 +1480,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 23, 2, "Failed to evaluate Disabled state");
+        bool new_val = evalBooleanProperty(flowState, 23, 3, "Failed to evaluate Disabled state");
         bool cur_val = lv_obj_has_state(objects.save_1, LV_STATE_DISABLED);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.save_1;
@@ -1490,7 +1490,7 @@ void tick_screen_lighting_screen() {
         }
     }
     {
-        bool new_val = evalBooleanProperty(flowState, 24, 2, "Failed to evaluate Disabled state");
+        bool new_val = evalBooleanProperty(flowState, 24, 3, "Failed to evaluate Disabled state");
         bool cur_val = lv_obj_has_state(objects.obj33, LV_STATE_DISABLED);
         if (new_val != cur_val) {
             tick_value_change_obj = objects.obj33;
@@ -1774,7 +1774,7 @@ void tick_user_widget_header(void *flowState, int startWidgetIndex) {
     
     void tick_user_widget_zone_selector(void *flowState, int startWidgetIndex) {
         {
-            const char *new_val = evalTextProperty(flowState, 0, 2, "Failed to evaluate Text in Label widget");
+            const char *new_val = evalTextProperty(flowState, 0, 3, "Failed to evaluate Text in Label widget");
             const char *cur_val = lv_label_get_text(((lv_obj_t **)&objects)[startWidgetIndex + 2]);
             if (strcmp(new_val, cur_val) != 0) {
                 tick_value_change_obj = ((lv_obj_t **)&objects)[startWidgetIndex + 2];
